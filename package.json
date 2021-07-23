@@ -1,25 +1,26 @@
 {
-  "name": "api_node_express",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "nodemon server",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "axios": "^0.21.1",
-    "body-parser": "^1.19.0",
-    "cheerio": "^1.0.0-rc.10",
-    "config": "^3.2.3",
-    "consign": "0.1.6",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "nodemon": "^2.0.12",
-    "puppeteer": "^10.1.0",
-    "uuid": "3.3.3"
-  }
+    "name": "api_node_express",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "nodemon server",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "axios": "^0.21.1",
+        "body-parser": "^1.19.0",
+        "cheerio": "^1.0.0-rc.10",
+        "config": "^3.2.3",
+        "consign": "0.1.6",
+        "cors": "^2.8.5",
+        "express": "^4.17.1",
+        "mongoose": "^5.13.3",
+        "nodemon": "^2.0.12",
+        "puppeteer": "^10.1.0",
+        "uuid": "3.3.3"
+    }
 }
