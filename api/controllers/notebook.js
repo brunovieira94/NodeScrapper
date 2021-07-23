@@ -46,13 +46,10 @@ module.exports = app => {
                     price
                 });
             });
-            let saved = []
-            for(let key in notebookTable){
-                saved.push(await new Notebook(notebookTable[key]).save())
-            }
-            res.status(200).json(saved);
+            let saved = await new Notebook(notebookTable[3]).save()
+            res.status(201).json(saved);
         } catch (error) {
-            res.status(500).json("erro");
+            res.status(500).json(error);
         }
     }
 
