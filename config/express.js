@@ -33,7 +33,6 @@ module.exports = () => {
 
     // ENDPOINTS
     consign({ cwd: 'api' })
-        .then('data')
         .then('controllers')
         .then('routes')
         .into(app);
