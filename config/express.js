@@ -4,6 +4,7 @@ const config = require('config');
 const consign = require('consign');
 const cors = require('cors');
 const mongoose = require('mongoose')
+const expressValidator = require('express-validator')
 
 module.exports = () => {
     const app = express();
@@ -30,6 +31,7 @@ module.exports = () => {
         next();
 
     });
+    app.use(expressValidator())
 
     // ENDPOINTS
     consign({ cwd: 'api' })

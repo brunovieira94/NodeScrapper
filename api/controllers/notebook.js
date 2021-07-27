@@ -12,7 +12,7 @@ module.exports = app => {
             const notebooks = await Notebook.find({})
             res.status(200).json(notebooks);
         } catch (error) {
-            res.status(500).json("erro");
+            res.status(500).json(error);
         }
     }
 
@@ -42,7 +42,7 @@ module.exports = app => {
             orderedNotebookTable = notebookTable.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
             res.status(200).json(orderedNotebookTable);
         } catch (error) {
-            res.status(500).json("erro");
+            res.status(500).json(error);
         }
     }
 
