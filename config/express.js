@@ -5,11 +5,14 @@ const consign = require('consign');
 const cors = require('cors');
 const mongoose = require('mongoose')
 const expressValidator = require('express-validator')
+const dbconfig = require('./database')
+const passport = require('passport')
 
 module.exports = () => {
     const app = express();
 
-    mongoose.connect('mongodb://localhost/scrapperNode')
+    // Conexão com mongo
+    mongoose.connect(dbconfig.database)
     let db = mongoose.connection
     db.once('open', ()=>{
         console.log('Connected to MongoDB')
@@ -18,6 +21,9 @@ module.exports = () => {
         console.log(err)
     })
     app.mongoose = mongoose
+
+    // Configuração do passportJS
+    require('./passport')(passport)
 
     // SETANDO VARIÁVEIS DA APLICAÇÃO
     app.set('port', process.env.PORT || config.get('server.port'));
@@ -32,6 +38,8 @@ module.exports = () => {
 
     });
     app.use(expressValidator())
+    app.use(passport.initialize())
+    app.use(passport.session())
 
     // ENDPOINTS
     consign({ cwd: 'api' })
