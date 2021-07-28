@@ -43,7 +43,7 @@ module.exports = app => {
                             if(err){
                                 throw err
                             } else {
-                                res.status(200).json('You are now registered and can log in')
+                                res.status(200)
                             }
                         })
                     })
@@ -59,13 +59,13 @@ module.exports = app => {
         if(user){
             const validPassword = bcrypt.compareSync(req.body.password, user.password)
             if(validPassword){
-                res.status(200).json(`Success! Welcome ${user.name}!`)
+                res.status(200)
             } else {
-                res.status(401).json("Incorrect Password")
+                res.status(401).json({message:"Incorrect Password"})
             }
         }
         else {
-            res.status(401).json("User not registered")
+            res.status(401).json({message: "User not registered"})
         }
     }
 
