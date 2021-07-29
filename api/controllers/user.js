@@ -43,7 +43,7 @@ module.exports = app => {
                             if(err){
                                 throw err
                             } else {
-                                res.status(200)
+                                res.status(200).send()
                             }
                         })
                     })
@@ -59,7 +59,7 @@ module.exports = app => {
         if(user){
             const validPassword = bcrypt.compareSync(req.body.password, user.password)
             if(validPassword){
-                res.status(200)
+                res.status(200).send()
             } else {
                 res.status(401).json({message:"Incorrect Password"})
             }
