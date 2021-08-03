@@ -90,5 +90,43 @@ module.exports = app => {
         }
     }
 
+    controller.getNotebook = async (req, res) => {
+        try {
+            let notebook = await Notebook.find({
+                _id: req.params.id,
+            })
+            res.status(200).json(notebook);
+        } catch (error) {
+            res.status(500).json(error);
+        }
+    }
+
+    controller.updateNotebook = async (req, res) => {
+        try {
+            let notebook = await Notebook.findOne({
+                _id: req.params.id,
+            })
+            notebook.model = req.body.model || notebook.model
+            notebook.price = req.body.price || notebook.price
+            notebook.description = req.body.description || notebook.description 
+            notebook.image = req.body.image || notebook.image
+            let updated = await notebook.save()
+            res.status(200).json(updated);
+        } catch (error) {
+            res.status(500).json(error);
+        }
+    }
+
+    controller.deleteNotebook = async (req, res) => {
+        try {
+            let deleted = await Notebook.findOneAndRemove({
+                _id: req.params.id,
+            })
+            res.status(200).json(deleted);
+        } catch (error) {
+            res.status(500).json(error);
+        }
+    }
+
     return controller;
 }

@@ -10,4 +10,9 @@ module.exports = app => {
     app.route('/api/v1/saveNotebooksDB')
         .post(controller.saveNotebooksDB);
 
+    app.route('/api/v1/notebook/:id')
+        .get(controller.getNotebook)
+        .put(controller.updateNotebook)
+        .delete(controller.deleteNotebook)
+
 }
