@@ -86,7 +86,7 @@ module.exports = app => {
         try {
             passport.authenticate("local", (err, user, info) =>{
                 if (err) throw err
-                if (!user) res.send("No user exists")
+                if (!user) res.status(500).json("No user exists")
                 else {
                     req.logIn(user, err =>{
                         if(err) throw err
